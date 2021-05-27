@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="calculator.css">
+        <script>
+          function calc(x)
+{
+    
+   document.getElementById('display').value=document.getElementById('display').value+x; 
+    console.log(x);
+    console.log(typeof(x));
+}
+function clr()
+{
+    
+    document.getElementById("display").value='0';
+    console.log("cleared");
+}
+function result()
+{
+    try
+    {
+    var x=document.getElementById('display').value;
+    var y=eval(x);
+    document.getElementById('display').value=y;
+    console.log(x);
+    }
+    catch(err)
+    {
+        document.getElementById('display').value='';
+        alert("please enter the valid operator");
+    }
+}
+function wrong()
+{
+    var x=document.getElementById("display").value.slice(0,-1);
+    document.getElementById("display").value=x;
+}
+  
+        </script>
+        <script src="https://kit.fontawesome.com/886c1a5c67.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        
+        <div class="keys">
+            <h1>Calculator</h1>
+            <table>
+                <tr>
+                    <td colspan="4"><input type="text" id="display" value='0'></td>
+                    
+                    </tr>
+                    <tr>
+                        <td><button  onclick="clr()" style="color: red;">C</button></td>
+                        <td><button class="operators" onclick="calc('(')">(</button></td>
+                        <td><button class="operators" onclick="calc(')')">)</button></td>
+                        <td><button class="fa fa-window-close operators" aria-hidden="true" onclick="wrong()"></button></td>
+                    </tr>
+                    <tr>
+
+            
+            <td><button onclick="calc('.')">.</button></td>
+            <td><button onclick="calc('0')">0</button></td>
+           <td> <button class="operators" onclick="calc('-')">-</button></td>
+            <td><button class="operators" onclick="calc('+')">+</button></td>
+            </tr>
+            <tr>
+            <td><button onclick="calc('7')">7</button></td>
+            <td><button onclick="calc('8')">8</button></td>
+            <td><button onclick="calc('9')">9</button></td>
+           
+            <td><button class="operators" onclick="calc('*')">*</button></td>
+            </tr>
+            <tr>
+            <td><button onclick="calc('4')">4</button></td>
+             <td> <button onclick="calc('5')">5</button></td>
+             <td> <button onclick="calc('6')">6</button></td>
+             <td><button class="operators" onclick="calc('/')">/</button></td>
+             
+            </tr>
+            <tr>
+                <td><button onclick="calc('1')">1</button></td>
+                <td><button onclick="calc('2')">2</button></td>
+                <td><button onclick="calc('3')">3</button></td>
+                <td><button class="operators" onclick="result()" id="equal">=</button></td>
+                </tr>
+                </table>
+        </div>
+    </body>
+</html>
